@@ -86,7 +86,7 @@ public class LunarDay implements Serializable {
             return holiday;
         } else if (solar != null) {
             return solar;
-        } else if (dayOfMonth.equals("初一")) {
+        } else if ("初一".equals(dayOfMonth)) {
             return month;
         } else {
             return dayOfMonth;
