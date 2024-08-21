@@ -13,6 +13,7 @@ import android.os.PersistableBundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+import io.github.pixee.security.BoundedLineReader;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         ) {
             StringBuilder builder = new StringBuilder();
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = BoundedLineReader.readLine(reader, 5_000_000)) != null) {
                 builder.append(line).append("\n");
             }
             String info = builder.toString();
